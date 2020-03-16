@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46647600-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-46647600-3');
+</script>
+  <meta charset="utf-8">
+  <title>IU Coronavirus Fatality Rate Dashboard ({date})</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <aside>
+    <div id="sidebar"></div>
+  </aside>
+
+  <div id="wrapper">
+    <header>
+      <h1>COVID-19 Dashboard</h1>
+    </header>
+    <div id="CFR-viz">
+      <h2><a name="h2cfr">Case Fatality Rate</a></h2>
+      <div style="clear:both"></div>
+      <div id="viewof-radius_type"></div>
+      <div id="viewof-curr_date"></div>
+      <div style="clear:both"></div>
+      <div id="chart"></div>
+      <div id="swatch"></div>
+    </div>
+    <h2><a name="h2trend">COVID-19 Case Trend</a></h2>
+    <div id="trend-viz">
+      <div id="viewof-num_days_to_use"></div>
+      <div id="chart2"></div>
+    </div>
+    <div style="clear:both"></div>
+    <div id="explanation">
+<p>This visualization shows the temporal evolution of national-level confirmed cases and the number of deaths, for the countries with at least one death. The visualization incorporates new case data whenever the data source gets updated. Please note that the case fatality is affected by various factors, particularly at the early stage of the outbreak. Because of strong age-correlated variance in the fatality rate, population structure of a country or the place of early clustered outbreaks may significantly affect the overall case fatality. Yet, high fatality rate may indicate too much stress to the healthcare system or the lack of aggressive testing in the country.</p>
+
+<p>It is created by <a href="https://yongyeol.com/">YY Ahn</a> (<a href="https://twitter.com/yy">@yy</a>) and <a href="https://www.linkedin.com/in/sina-kianersi-b311b3b1/">Sina Kianersi</a> (<a href="https://twitter.com/sina_kianersi">@sina_kianersi</a>) at the <a href="https://www.indiana.edu">Indiana University Bloomington</a>. The visualization is built on <a href="https://observablehq.com/@mbostock/the-wealth-health-of-nations">the recreation of GapMinder visualization</a> by <a href="https://observablehq.com/@mbostock">@mbostock</a>.</p>
+
+<ul>
+  <li>You can check out the source code on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-fatality-rate">https://observablehq.com/@yy/covid-19-fatality-rate</a> and <a href="https://observablehq.com/@yy/covid-19-trends">https://observablehq.com/@yy/covid-19-trends</a></li>
+  <li>Data and workflow: <a href="https://github.com/yy/covid19-data">https://github.com/yy/covid19-data</a></li>
+  <li>Raw data: <a href="https://ourworldindata.org/coronavirus-source-data">Our World in Data's cleaned version of WHO situation reports</a></li>
+</ul>
+    </div>
+    <footer>
+Last updated: {timestamp}
+    </footer>
+  </div>
+<script type="module">
+
+// Load the Observable runtime and inspector.
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+
+// Your notebook, compiled as an ES module.
+import notebook1 from "https://api.observablehq.com/@yy/covid-19-fatality-rate.js?v=3";
+import notebook2 from "https://api.observablehq.com/@yy/covid-19-trends.js?v=3";
+
+const renders1 = {
+  "viewof curr_date": "#viewof-curr_date",
+  "viewof radius_type": "#viewof-radius_type",
+  "swatch": "#swatch",
+  "chart": "#chart",
+}
+
+const renders2 = {
+  "chart": "#chart2",
+  "viewof num_days_to_use": "#viewof-num_days_to_use",
+}
+
+// Load the notebook, observing its cells with a default Inspector
+// that simply renders the value of each cell into the provided DOM node.
+const runtime1 = new Runtime();
+const main1 = runtime1.module(notebook1, name => {
+  const selector = renders1[name];
+  if (selector) {
+    return new Inspector(document.querySelector(selector));
+  } else {
+    return true;
+  }
+});
+
+const runtime2 = new Runtime();
+const main2 = runtime2.module(notebook2, name => {
+  const selector = renders2[name];
+  if (selector) {
+    return new Inspector(document.querySelector(selector));
+  } else {
+    return true;
+  }
+});
+
+</script>
+

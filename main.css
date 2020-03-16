@@ -1,0 +1,57 @@
+body {
+}
+h1 {
+  font-size: xx-large;
+}
+h2 {
+  padding-top: 20px;
+}
+header{
+  margin-top:30px;
+  margin-bottom: 10px;
+}
+footer{
+  margin-top: 40px;
+  font-family: sans-serif;
+  font-size: x-small ;
+  padding-bottom: 500px;
+}
+#sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top:0;
+  left:0;
+  overflow-x: hidden;
+  background-image: url("iu_tab_left-tail_web.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+  background-position: -180px 20px;
+}
+#wrapper {
+  margin-left: 200px;
+  margin-right: 50px;
+  max-width: 1400px;
+  min-width: 600px;
+}
+#CFR-viz {
+}
+#trend-viz {
+}
+#viewof-radius_type {
+  width: 15em;
+  float: left;
+}
+#viewof-curr_date {
+  margin-right: 3em;
+}
+#chart {
+  margin-top: 25px;
+}
+#swatch {
+  margin-left: 5em;
+}
+#explanation {
+  font-size: large;
+}
