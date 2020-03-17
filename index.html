@@ -15,7 +15,11 @@
 </head>
 <body>
   <aside>
-    <div id="sidebar"></div>
+    <div id="sidebar">
+      <div style="margin-top:100px"></div>
+        <a href="#h2cfr">Fatality</a>
+        <a href="#h2trend">Trend</a>
+    </div>
   </aside>
 
   <div id="wrapper">
@@ -23,7 +27,8 @@
       <h1>COVID-19 Dashboard</h1>
     </header>
     <div id="CFR-viz">
-      <h2><a name="h2cfr">Case Fatality Rate</a></h2>
+      <a class="anchor" name="h2cfr">Case Fatality Rate</a>
+      <h2>Case Fatality Rate</h2>
       <div style="clear:both"></div>
       <div id="viewof-radius_type"></div>
       <div id="viewof-curr_date"></div>
@@ -42,11 +47,14 @@
       <div id="swatch"></div>
 
     </div>
-    <h2><a name="h2trend">COVID-19 Case Trend</a></h2>
+    <a class="anchor" name="h2trend">Case trends</a>
+    <h2>Case Trend</h2>
     <div id="trend-viz">
       <div id="viewof-num_days_to_use"></div>
       <div class="sidenote">
         <p>This visualization shows the growth in the number of cases in log-linear scale. A straight line indicates that the growth is exponential and double every X days. You can set the number of days to include in calculating the trend by using the slider. </p>
+
+        <p>Improve this visualization on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-trends">https://observablehq.com/@yy/covid-19-trends</a></p>
       </div>
       <div id="chart2"></div>
     </div>
