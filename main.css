@@ -12,14 +12,12 @@ h1 {
 }
 h2 {
   font-style: italic;
-  margin-top: 0rem;
   margin-bottom: 1.4rem;
   font-size: 2.2rem;
 }
 a.anchor {
   display: block;
   position: relative;
-  top: -0px;
   visibility: hidden;
 }
 header{
@@ -63,6 +61,11 @@ footer{
 }
 #trend-viz {
 }
+
+.viewof {
+  margin-bottom: 20px;
+}
+
 #viewof-radius_type {
   width: 15em;
   float: left;

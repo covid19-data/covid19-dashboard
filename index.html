@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46647600-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46647600-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'UA-46647600-3');
-</script>
+gtag('config', 'UA-46647600-3');
+  </script>
   <meta charset="utf-8">
   <title>IU Coronavirus Fatality Rate Dashboard (2020-03-16)</title>
   <link rel="stylesheet" type="text/css" href="main.css">
@@ -17,8 +17,8 @@
   <aside>
     <div id="sidebar">
       <div style="margin-top:100px"></div>
-        <a href="#h2cfr">Fatality</a>
-        <a href="#h2trend">Trend</a>
+      <a href="#h2trend">Trend</a>
+      <a href="#h2cfr">Fatality</a>
     </div>
   </aside>
 
@@ -26,6 +26,22 @@
     <header>
       <h1>COVID-19 Dashboard</h1>
     </header>
+    <div id="trend-viz">
+      <a class="anchor" name="h2trend">Case trends</a>
+      <h2>Case Trend</h2>
+      <div id="trend_swatch"></div>
+      <div class="sidenote">
+        <div id="viewof-y_type" class="viewof"></div>
+        <div id="viewof-pivot_n" class="viewof"></div>
+        <div id="viewof-num_days" class="viewof"></div>
+        <div id="viewof-doubling_periods" class="viewof"></div>
+        <div id="viewof-selected_regions" class="viewof"></div>
+        <p>This visualization shows the growth in the number of cases in log-linear scale. A straight line indicates that the growth is exponential and double every X days. You can set the number of days to include in calculating the trend by using the slider. </p>
+
+        <p>Improve this visualization on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-spreading-trends">https://observablehq.com/@yy/covid-19-spreading-trends</a></p>
+      </div>
+      <div id="trend_chart"></div>
+    </div>
     <div id="CFR-viz">
       <a class="anchor" name="h2cfr">Case Fatality Rate</a>
       <h2>Case Fatality Rate</h2>
@@ -45,41 +61,29 @@
         <p>Improve this visualization on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-fatality-rate">https://observablehq.com/@yy/covid-19-fatality-rate</a></p>
       </div>
       <div id="chart"></div>
-      <div id="swatch"></div>
-
-    </div>
-    <a class="anchor" name="h2trend">Case trends</a>
-    <h2>Case Trend</h2>
-    <div id="trend-viz">
-      <div id="viewof-num_days_to_use"></div>
-      <div class="sidenote">
-        <p>This visualization shows the growth in the number of cases in log-linear scale. A straight line indicates that the growth is exponential and double every X days. You can set the number of days to include in calculating the trend by using the slider. </p>
-
-        <p>Improve this visualization on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-trends">https://observablehq.com/@yy/covid-19-trends</a></p>
-      </div>
-      <div id="chart2"></div>
+      <div id="swatch" style="margin-bottom: 20px;"></div>
     </div>
     <div style="clear:both"></div>
     <footer>
-    <div id="explanation">
-<p>These visualizations are created by <a href="https://yongyeol.com/">YY Ahn</a> (<a href="https://twitter.com/yy">@yy</a>) and <a href="https://www.linkedin.com/in/sina-kianersi-b311b3b1/">Sina Kianersi</a> (<a href="https://twitter.com/sina_kianersi">@sina_kianersi</a>) at the <a href="https://www.indiana.edu">Indiana University Bloomington</a>. The visualization is built on <a href="https://observablehq.com/@mbostock/the-wealth-health-of-nations">the recreation of GapMinder visualization</a> by <a href="https://observablehq.com/@mbostock">@mbostock</a>.</p>
+      <div id="explanation">
+        <p>These visualizations are created by <a href="https://yongyeol.com/">YY Ahn</a> (<a href="https://twitter.com/yy">@yy</a>) and <a href="https://www.linkedin.com/in/sina-kianersi-b311b3b1/">Sina Kianersi</a> (<a href="https://twitter.com/sina_kianersi">@sina_kianersi</a>) at the <a href="https://www.indiana.edu">Indiana University Bloomington</a>. The visualization is built on <a href="https://observablehq.com/@mbostock/the-wealth-health-of-nations">the recreation of GapMinder visualization</a> by <a href="https://observablehq.com/@mbostock">@mbostock</a>.</p>
 
-<ul>
-  <li>Contributors: <a href="https://twitter.com/alphastanley">@alphastanley</a></li>
-  <li>You can check out the source code on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-fatality-rate">https://observablehq.com/@yy/covid-19-fatality-rate</a> and <a href="https://observablehq.com/@yy/covid-19-trends">https://observablehq.com/@yy/covid-19-trends</a></li>
-  <li>Data and workflow: <a href="https://github.com/yy/covid19-data">https://github.com/yy/covid19-data</a></li>
-</ul>
-    </div>
+        <ul>
+          <li>Contributors: <a href="https://twitter.com/alphastanley">@alphastanley</a></li>
+          <li>You can check out the source code on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-fatality-rate">https://observablehq.com/@yy/covid-19-fatality-rate</a> and <a href="https://observablehq.com/@yy/covid-19-spreading-trends">https://observablehq.com/@yy/covid-19-spreading-trends</a></li>
+          <li>Data and workflow: <a href="https://github.com/yy/covid19-data">https://github.com/yy/covid19-data</a></li>
+        </ul>
+      </div>
     </footer>
   </div>
-<script type="module">
+  <script type="module">
 
-// Load the Observable runtime and inspector.
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    // Load the Observable runtime and inspector.
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
 // Your notebook, compiled as an ES module.
 import notebook1 from "https://api.observablehq.com/@yy/covid-19-fatality-rate.js?v=3";
-import notebook2 from "https://api.observablehq.com/@yy/covid-19-trends.js?v=3";
+import notebook2 from "https://api.observablehq.com/@yy/covid-19-spreading-trends.js?v=3";
 
 const renders1 = {
   "viewof curr_date": "#viewof-curr_date",
@@ -89,8 +93,13 @@ const renders1 = {
 }
 
 const renders2 = {
-  "chart": "#chart2",
-  "viewof num_days_to_use": "#viewof-num_days_to_use",
+  "viewof y_type": "#viewof-y_type",
+  "viewof pivot_n": "#viewof-pivot_n",
+  "viewof num_days": "#viewof-num_days",
+  "viewof doubling_periods": "#viewof-doubling_periods",
+  "viewof selected_regions": "#viewof-selected_regions",
+  "chart": "#trend_chart",
+  //"swatch": "#trend_swatch",
 }
 
 // Load the notebook, observing its cells with a default Inspector
@@ -115,5 +124,5 @@ const main2 = runtime2.module(notebook2, name => {
   }
 });
 
-</script>
+  </script>
 
