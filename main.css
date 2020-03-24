@@ -91,3 +91,21 @@ footer{
 }
 #explanation {
 }
+
+/* This disables text selection for all SVG text entities */
+svg text {
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+svg text::selection {
+  background: none;
+}
+
+/* This disables text interaction for the case fatality rate chart */
+#chart svg text{
+  pointer-events: none;
+}
+
