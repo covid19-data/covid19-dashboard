@@ -68,7 +68,7 @@ a.anchor {
 }
 
 #explanation {
-
+  width: 90%
 }
 
 /* This disables text selection for all SVG text entities */
