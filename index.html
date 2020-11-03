@@ -130,6 +130,22 @@
   	<script type="module">
       import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
+      function render(_node, value) {
+        if (!(value instanceof Element)) {
+          const el = document.createElement("span");
+          el.innerHTML = value;
+          value = el;
+        }
+        if (_node.firstChild !== value) {
+          if (_node.firstChild) {
+            while (_node.lastChild !== _node.firstChild) _node.removeChild(_node.lastChild);
+            _node.replaceChild(value, _node.firstChild);
+          } else {
+            _node.appendChild(value);
+          }
+        }
+      }
+
       import notebookSpreading from "https://api.observablehq.com/d/4cd98169fdfdd8b3.js?v=3"; 
       const rendersSpreading = {
       	"viewof y_type": "#viewof-y_type",
@@ -174,6 +190,7 @@
       });
 
       import notebookFatality from "https://api.observablehq.com/d/945cb14c5e8290a8.js?v=3";
+      
       const rensersFatality = {
         "viewof delay_parameter": "#viewof-delay_parameter",
         "viewof timeSliderFatality": "#viewof-timeSliderFatality",
@@ -181,7 +198,7 @@
         "viewof currDateF": "#viewof-currDateF",
         "viewof radius_type": "#viewof-radius_type",
         "Fswatch": "#Fswatch",
-        "Fchart": "#Fchart",
+        "Fatality_chart": "#Fchart",
       }
 
       const runtimeFatality = new Runtime();
@@ -193,7 +210,7 @@
               return true;
           }
       });
-      
+
   	</script>
   </body>
 </html>

@@ -70,15 +70,3 @@ a.anchor {
 #explanation {
   width: 90%
 }
-
-/* This disables text selection for all SVG text entities */
-svg text {
-  cursor: default;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-svg text::selection {
-  background: none;
-}
