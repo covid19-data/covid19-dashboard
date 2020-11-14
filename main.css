@@ -24,11 +24,12 @@ header{
 .bottom {
   position: absolute;
   bottom: 50%;
+  right: 0;
 }
 
 #sidebar {
   height: 100%;
-  width: 150px;
+  width: 210px;
   position: fixed;
   z-index: 1;
   top:0;
@@ -36,8 +37,9 @@ header{
   overflow-x: hidden;
   background-image: url("iu_tab_left-tail_web.png");
   background-repeat: no-repeat;
-  background-size: 300px;
-  background-position: -220px 30px;
+  background-size: 340px;
+  background-position: -200px 30px;
+  text-align: right;
 }
 
 a.anchor {
@@ -55,7 +57,7 @@ a.anchor {
 }
 
 #wrapper {
-	margin-left: 140px;
+	margin-left: 180px;
 }
 
 #wrapper {

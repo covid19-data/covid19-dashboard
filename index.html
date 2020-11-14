@@ -13,17 +13,15 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   	<title>Coronavirus Trend Visualization</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-  	<style>
-    </style>
   </head>
   <body>
     <aside>
       <div id="sidebar">
           <div style="margin-top: 100px"></div>
-            <a href="index.html">Trend</a>
+            <a href="index.html">Fatality</a>
             <a href="trajectory.html">Trajectory</a>
-            <a href="fatality.html">Fatality</a>
-            <a href="racing.html">Racing</a>
+            <a href="trend.html">Trend</a>
+            <a href="racing.html">Bar chart</a>
             <div class="bottom">
             <a href="contributors.html">Contributors</a>
             </div>
@@ -35,43 +33,54 @@
       <h1>COVID-19 Trend Visualizations</h1>
     </header>
 
-    <div id="trend-viz">
-      <a class="anchor" name="h2trend"></a>
-      <h2>Case Trend</h2>
-      <div class="row">
-         <div id="viewof-pivot_n" class="viewof column"></div>
-         <div id="viewof-num_days" class="viewof column"></div>
-      </div> 
-      <div id="viewof-selected_regions" class="viewof"></div>
-      <div id="viewof-y_type" class="viewof"></div>
-      <div id="viewof-goback" class="viewof"></div>
-      <div id="trend_chart" class="chart"></div>
-      <div id="trend_swatch"></div>
-      <div id="explanation">
-      <p>This visualization shows the growth in the number of cases in log-linear scale. A straight line indicates that the growth is exponential and double every X days. You can set the number of days to include in calculating the trend by using the slider. </p>
+    <div id="fatality-viz">
+      <a class="anchor" name="h2fatality"></a>
+      <h2>Case Fatality Rate</h2>
 
-      <p>Improve this visualization on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-spreading-trends">https://observablehq.com/@yy/covid-19-spreading-trends</a></p>
+      <div class="row">   
+         <div id="viewof-timeSliderFatality" class="viewof column"></div>
+         <div id="viewof-playSpeedFatality" class="viewof column"></div>
+      </div>
+
+      <div class="row">
+         <div id="viewof-radius_type" class="viewof column"></div>
+         <div id="viewof-currDateF" class="viewof column"></div> 
+      </div>
+      
+      <div id="viewof-delay_parameter" class="viewof"></div>
+      <div id="Fchart" class="chart"></div>
+      <div id="Fswatch"></div>
+      <div id="explanation">
+      <p>This visualization shows the temporal evolution of national-level confirmed cases and the number of deaths, for the countries with at least one death. You can <strong>mouse-over</strong> to see the past trajectory.</p> 
+
+      <p>Please note that the case fatality is affected by various factors, particularly <em>at the early stage of the outbreak</em>. First of all, the progression from contracting the disease to death takes time. Therefore, the fatality rate would increase for a while even after the number of cases stop increasing. Also the early-stage fatality rate may either be <em>underestimated</em> if there are aggressive testing (many early detected cases, but not yet progressed to deaths) or <em>overestimated</em> (deaths occur before adequate testing can be done).</p> 
+
+      <p>Because of strong age-related fatality rate variance, population structure (e.g. Italy has more elderly population than South Korea, although <a href="https://www.reddit.com/r/dataisbeautiful/comments/fj0eef/oc_coronavirus_death_rate_by_age_italy_vs_china/">this is not enough to explain the high fatality in Italy</a>) or the nature of early clustered outbreaks (e.g. <a href="https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_South_Korea#18_February%E2%80%93present_outbreak">South Korea</a> vs. <a href="https://en.wikipedia.org/wiki/Life_Care_Centers_of_America#Kirkland,_Washington_COVID-19_outbreak">US</a>) may significantly affect the case fatality rate, especially at the early stage.</p>
+
+      <p>Yet, fatality rate is an important indicator that reflects many serious scenarios that require attention, such as (i) large, undetected community spreading, (ii) extreme stress to the healthcare system (more preventable deaths), or (iii) emergence of more aggressive subtype.</p>
+
+      <p>Improve this visualization on ObservableHQ: <a href="https://observablehq.com/@yy/covid-19-fatality-rate">https://observablehq.com/@yy/covid-19-fatality-rate</a></p>
       </div>
     </div>
+  </div>
 
   	<script type="module">
       import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
-      import notebookSpreading from "https://api.observablehq.com/@yy/covid-19-spreading-trends.js?v=3"; 
-      const rendersSpreading = {
-      	"viewof y_type": "#viewof-y_type",
-        "viewof pivot_n": "#viewof-pivot_n",
-        "viewof num_days": "#viewof-num_days",
-        "viewof goBack": "#viewof-goback",
-        //"viewof doubling_periods": "#viewof-doubling_periods",
-        "viewof selected_regions": "#viewof-selected_regions",
-        "swatch": "#trend_swatch",
-        "chart": "#trend_chart",
+      import notebookFatality from "https://api.observablehq.com/@yy/covid-19-fatality-rate.js?v=3";
+      const rensersFatality = {
+        "viewof delay_parameter": "#viewof-delay_parameter",
+        "viewof timeSliderFatality": "#viewof-timeSliderFatality",
+        "viewof playSpeedFatality": "#viewof-playSpeedFatality",
+        "viewof currDateF": "#viewof-currDateF",
+        "viewof radius_type": "#viewof-radius_type",
+        "Fswatch": "#Fswatch",
+        "Fatality_chart": "#Fchart",
       }
 
-      const runtimeSpreading = new Runtime();
-      const mainSpreading = runtimeSpreading.module(notebookSpreading, name => {
-         const selector = rendersSpreading[name];
+      const runtimeFatality = new Runtime();
+      const mainFatality = runtimeFatality.module(notebookFatality, name => {
+         const selector = rensersFatality[name];
           if (selector) {
               return new Inspector(document.querySelector(selector));
           } else {
