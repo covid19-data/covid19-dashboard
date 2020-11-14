@@ -21,6 +21,10 @@ header{
   flex: 50%;
 }
 
+.bottom {
+  position: absolute;
+  bottom: 50%;
+}
 
 #sidebar {
   height: 100%;
@@ -65,6 +69,8 @@ a.anchor {
 #trajectory-viz{
 }
 #fatality-viz{
+}
+#racing-viz{
 }
 
 .viewof {

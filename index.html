@@ -23,6 +23,10 @@
             <a href="index.html">Trend</a>
             <a href="trajectory.html">Trajectory</a>
             <a href="fatality.html">Fatality</a>
+            <a href="racing.html">Racing</a>
+            <div class="bottom">
+            <a href="Contributors.html">Contributors</a>
+            </div>
           </div>
     </aside>
 
@@ -40,6 +44,7 @@
       </div> 
       <div id="viewof-selected_regions" class="viewof"></div>
       <div id="viewof-y_type" class="viewof"></div>
+      <div id="viewof-goback" class="viewof"></div>
       <div id="trend_chart" class="chart"></div>
       <div id="trend_swatch"></div>
       <div id="explanation">
@@ -52,11 +57,12 @@
   	<script type="module">
       import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
-      import notebookSpreading from "https://api.observablehq.com/d/4cd98169fdfdd8b3.js?v=3"; 
+      import notebookSpreading from "https://api.observablehq.com/@yy/covid-19-spreading-trends.js?v=3"; 
       const rendersSpreading = {
       	"viewof y_type": "#viewof-y_type",
         "viewof pivot_n": "#viewof-pivot_n",
         "viewof num_days": "#viewof-num_days",
+        "viewof goBack": "#viewof-goback",
         //"viewof doubling_periods": "#viewof-doubling_periods",
         "viewof selected_regions": "#viewof-selected_regions",
         "swatch": "#trend_swatch",

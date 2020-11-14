@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46647600-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-46647600-3');
+    </script>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  	<title>Coronavirus Trend Visualization</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <aside>
+      <div id="sidebar">
+          <div style="margin-top: 100px"></div>
+            <a href="index.html">Trend</a>
+            <a href="trajectory.html">Trajectory</a>
+            <a href="fatality.html">Fatality</a>
+            <a href="racing.html">Racing</a>
+            <div class="bottom">
+            <a href="Contributors.html">Contributors</a>
+            </div>
+          </div>
+    </aside>
+
+   <div id="wrapper">
+    <header>
+      <h1>COVID-19 Trend Visualizations</h1>
+    </header>
+
+    <div id="racing-viz">
+      <h2>Bar Chart Race of Confirmed Cases</h2>
+      <div id="viewof-speed" class="viewof"></div>
+      <div id="viewof-replay" class="viewof"></div>
+      <div id="Rchart" class="chart"></div>
+      <div id="explanation">
+      <p>Please allow 5 seconds for the chart to load, since the dataset is very large.</p>
+      <p>This visulization is almost completely based on Mike Bostock's<a href="https://observablehq.com/@d3/bar-chart-race-explained"> Bar Chart Race, Explained</a>, with only a few minor changes. 
+
+      <p>Improve this visualization on ObservableHQ: <a href="https://observablehq.com/@hongtaoh/bar-chart-race-of-coronavirus-confirmed-cases">https://observablehq.com/@hongtaoh/bar-chart-race-of-coronavirus-confirmed-cases</a></p>
+      </div>
+    </div>
+  </div>
+  
+  	<script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+
+      import notebook from "https://api.observablehq.com/@hongtaoh/bar-chart-race-of-coronavirus-confirmed-cases.js?v=3"; 
+      const renders = {
+        "viewof playSpeedRacing": "#viewof-speed",
+        "viewof replay": "#viewof-replay",
+        "Rchart": "#Rchart",
+      }
+
+      const runtime = new Runtime();
+      const main = runtime.module(notebook, name => {
+         const selector = renders[name];
+          if (selector) {
+              return new Inspector(document.querySelector(selector));
+          } else {
+              return true;
+          }
+      });
+
+    </script>
+  </body>
+</html>
