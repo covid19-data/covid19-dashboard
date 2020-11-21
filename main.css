@@ -38,9 +38,10 @@ header{
   background-image: url("iu_tab_left-tail_web.png");
   background-repeat: no-repeat;
   background-size: 340px;
-  background-position: -200px 30px;
+  background-position: -200px 30px; 
   text-align: right;
 }
+
 
 a.anchor {
   display: block;
@@ -83,6 +84,10 @@ a.anchor {
   max-height: 85%; 
   max-width: 90%;
   font-size: 21px;
+}
+
+.leftMargin {
+  margin-left: 10px;
 }
 
 #explanation {
