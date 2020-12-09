@@ -18,12 +18,11 @@
     <aside>
       <div id="sidebar">
           <div style="margin-top: 100px"></div>
-            <a href="index.html">Fatality</a>
-            <a href="trajectory.html">Trajectory</a>
-            <a href="trend.html">Trend</a>
-            <a href="racing.html">Bar chart</a>
+            <a href="index">Fatality</a>
+            <a href="trajectory">Trajectory</a>
+            <a href="trend">Trend</a>
             <div class="bottom">
-            <a href="contributors.html">Contributors</a>
+            <a href="contributors">Contributors</a>
             </div> 
           </div>
     </aside>
@@ -39,16 +38,16 @@
 
       <div class="row">   
          <div id="viewof-timeSliderFatality" class="viewof column"></div>
-         <div id="viewof-playSpeedFatality" class="viewof column"></div>
+         <div id="viewof-radius_type" class="viewof column"></div>
       </div>
 
       <div class="row">
-         <div id="viewof-radius_type" class="viewof column"></div>
+         <div id="viewof-playSpeedFatality" class="viewof column"></div>
          <div id="viewof-currDateF" class="viewof column"></div> 
       </div>
-      <div id="viewof-delay" class="viewof" style="margin-left: 10px;"></div>
+      <div id="viewof-delay" class="viewof leftMargin"></div>
       <div id="Fchart" class="chart"></div>
-      <div id="Fswatch"></div>
+      <div id="Fswatch" class="leftMargin"></div>
       <div id="explanation">
       <p>This visualization shows the temporal evolution of national-level confirmed cases and the number of deaths, for the countries with at least one death. You can <strong>mouse-over</strong> to see the past trajectory.</p> 
 
@@ -66,7 +65,7 @@
   	<script type="module">
       import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 
-      import notebookFatality from "https://api.observablehq.com/@hongtaoh/covid-19-fatality-rate.js?v=3";
+      import notebookFatality from "https://api.observablehq.com/@yy/covid-19-fatality-rate.js?v=3";
       const rensersFatality = {
         "viewof delay_parameter": "#viewof-delay",
         "viewof timeSliderFatality": "#viewof-timeSliderFatality",
