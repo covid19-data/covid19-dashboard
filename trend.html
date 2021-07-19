@@ -21,10 +21,10 @@
       <div id="sidebar">
           <div style="margin-top: 100px"></div>
             <a href="index">Fatality</a>
-            <a href="trajectory">Trajectory</a>
-            <a href="trend">Trend</a>
+            <a href="trajectory.html">Trajectory</a>
+            <a href="trend.html">Trend</a>
             <div class="bottom">
-            <a href="contributors">Contributors</a>
+            <a href="contributors.html">Contributors</a>
             </div> 
           </div>
     </aside>
@@ -37,13 +37,10 @@
     <div id="trend-viz">
       <a class="anchor" name="h2trend"></a>
       <h2>Case Trend</h2>
-      <div class="row">
-         <div id="viewof-pivot_n" class="viewof column"></div>
-         <div id="viewof-num_days" class="viewof column"></div>
-      </div> 
-      <div id="viewof-selected_regions" class="viewof" style="margin-left: 12px"></div>
       <div id="viewof-y_type" class="viewof"></div>
+      <div id="viewof-pivot_n" class="viewof column"></div>
       <div id="viewof-goback" class="viewof"></div>
+      <div id="viewof-selected_regions" class="viewof" style="margin-left: 12px"></div>
       <div id="trend_chart" class="chart"></div>
       <div id="trend_swatch"></div>
       <div id="explanation">
@@ -60,7 +57,7 @@
       const rendersSpreading = {
       	"viewof y_type": "#viewof-y_type",
         "viewof pivot_n": "#viewof-pivot_n",
-        "viewof num_days": "#viewof-num_days",
+        // "viewof num_days": "#viewof-num_days",
         "viewof goBack": "#viewof-goback",
         //"viewof doubling_periods": "#viewof-doubling_periods",
         "viewof selected_regions": "#viewof-selected_regions",
